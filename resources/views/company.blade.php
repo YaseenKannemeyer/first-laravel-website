@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
 </head>
 <body>
-    <h1>Contact</h1>
+    <h1>Company</h1>
+    <p>This is the company page.</p>
 </body>
 </html>
