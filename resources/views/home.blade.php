@@ -27,5 +27,5 @@
 
 @section('footer')
    
-        <p>&copy; 2023 My App. All rights reserved.</p>
+        <p>&copy; 2026 My App. All rights reserved.</p>
    @endsection
