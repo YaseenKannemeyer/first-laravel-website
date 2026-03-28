@@ -9,8 +9,9 @@
 </head>
 <body>
     <header>
+        <img src="{{asset('images/image.png')}}" alt="image">
         @yield('header')
-         @include('sidemenu')
+        @include('sidemenu')
     </header>
 
     <main>
