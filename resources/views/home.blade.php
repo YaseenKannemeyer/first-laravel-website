@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
-</head>
-<body>
+@extends('layouts.default')
+
+@section('header')
+        <h1>My App</h1>
+       
+@endsection
+
+@section('maincontent')
     <h1>Home</h1>
     <br>
     <p>Welcome to the home page!</p>
@@ -25,5 +23,9 @@
         <button type="submit">Submit</button>
        
     </form>
-</body>
-</html>
+@endsection
+
+@section('footer')
+   
+        <p>&copy; 2023 My App. All rights reserved.</p>
+   @endsection
