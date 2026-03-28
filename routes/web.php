@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 
 //get route example
@@ -50,6 +51,8 @@ Route::prefix("portfolio")->group(function () {
         return view('organization');
     });
 });
+
+Route::resource('posts', PostController::class);
 
 
 
