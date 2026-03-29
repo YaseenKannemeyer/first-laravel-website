@@ -1,58 +1,174 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  My First Laravel Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel web application with Blade templating, Tailwind CSS, Vite, and full CRUD functionality for a Post resource.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Getting Started](#getting-started)
+- [Database Setup](#database-setup)
+- [Environment Configuration](#environment-configuration)
+- [Running the Project](#running-the-project)
+- [Frontend Build Tools](#frontend-build-tools)
+- [MVC — Creating Models, Controllers & Migrations](#mvc--creating-models-controllers--migrations)
+- [Artisan Migration Commands](#artisan-migration-commands)
+- [What's Been Built](#whats-been-built)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Getting Started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [XAMPP](https://www.apachefriends.org/) installed and running
+- [Composer](https://getcomposer.org/) installed
+- [Node.js & npm](https://nodejs.org/) installed
+- Laravel installer: `composer global require laravel/installer`
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Laravel Project Setup
 
-## Agentic Development
+- [ ] Start XAMPP and launch **MySQL**
+- [ ] Create a new database in **phpMyAdmin**
+- [ ] Navigate to your projects folder:
+  ```bash
+  cd ~/Projects
+  ```
+- [ ] Create a new Laravel project:
+  ```bash
+  laravel new projectname
+  ```
+- [ ] Enter the project folder:
+  ```bash
+  cd projectname
+  ```
+- [ ] Open in VS Code:
+  ```bash
+  code .
+  ```
+- [ ] Update `.env` with your database credentials *(see [Environment Configuration](#environment-configuration))*
+- [ ] Run migrations:
+  ```bash
+  php artisan migrate
+  ```
+- [ ] Start the Laravel development server:
+  ```bash
+  php artisan serve
+  ```
+- [ ] Open your browser at **http://127.0.0.1:8000**
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
-```bash
-composer require laravel/boost --dev
+## Database Setup
 
-php artisan boost:install
+1. Open **XAMPP** → click **Start** next to MySQL
+2. Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+3. Create a new database for your project, e.g. `myapp_db`
+
+---
+
+## Environment Configuration
+
+Open your Laravel project's `.env` file in VS Code and update the database connection block:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=myapp_db
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+> **Note:** Leave `DB_PASSWORD` blank if your local MySQL has no password set (default XAMPP setup).
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Running the Project
 
-## Code of Conduct
+Start the development server:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan serve
+```
 
-## Security Vulnerabilities
+Visit: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## Frontend Build Tools
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project uses **Vite** with **Tailwind CSS** for asset management.
+
+| Command | Description |
+|---|---|
+| `npx vite` | Start the Vite development server |
+| `npx vite build` | Build assets for production |
+| `npm run dev` | Run the dev script defined in `package.json` |
+
+---
+
+## MVC — Creating Models, Controllers & Migrations
+
+To scaffold a full MVC resource (Model + Migration + Controller with resource methods):
+
+```bash
+php artisan make:model Post -mcr
+```
+
+This generates:
+- `app/Models/Post.php` — the Eloquent model
+- `database/migrations/xxxx_create_posts_table.php` — the migration file
+- `app/Http/Controllers/PostController.php` — a resource controller with index, create, store, show, edit, update, destroy methods
+
+---
+
+## Artisan Migration Commands
+
+| Command | Description |
+|---|---|
+| `php artisan migrate` | Run all pending migrations |
+| `php artisan migrate:rollback` | Roll back the last batch of migrations |
+| `php artisan migrate:refresh` | Roll back all migrations and re-run them (fresh state) |
+
+### Targeting a Specific Migration File
+
+Roll back a specific migration:
+```bash
+php artisan migrate:rollback --path=database/migrations/2026_03_28_111448_create_posts_table.php
+```
+
+Run a specific migration:
+```bash
+php artisan migrate --path=database/migrations/2026_03_28_111448_create_posts_table.php
+```
+
+---
+
+## What's Been Built
+
+- Initialized Laravel project with Vite and Tailwind CSS
+- Set up web routes for home and contact pages
+- Built home and contact Blade views with a shared layout including header, footer, and sidebar
+- Added portfolio, company, and organisation views with their routes
+- Implemented form submission with validation
+- Created a `Post` model with `title` and `body` fillable fields
+- Built a posts table via migration
+- Implemented full CRUD for posts — index, create, edit, and delete
+- Added form validation and error handling on create and edit views
+- Configured PHPUnit and Pest testing framework with example tests
+
+---
+
+## 📺 Tutorial
+
+This project was built following the YouTube tutorial series:
+[Laravel Tutorial for Beginners](https://www.youtube.com/watch?v=Rz6SMgKrSYE&list=PL0eyrZgxdwhy7Woo2VRRDMmTXXYT_iaYO)
+
+---
+
+## 👤 Author
+
+**Mogamat Yaseen Kannemeyer**  
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
