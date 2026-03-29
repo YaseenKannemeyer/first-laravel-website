@@ -11,6 +11,8 @@
     <p>Welcome to the home page!</p>
     <br>
     <a href="{{ route('testpage') }}"> Go to Test Page</a>
+    <br>
+<a href="{{ route('posts.index') }}">View Posts</a>
     <br><br>
     <form action="{{ route('formsubmitted') }}" method="POST">
         @csrf
